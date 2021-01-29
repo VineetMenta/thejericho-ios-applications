@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5IU-7C-3XS">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Friends-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8nx-LC-Wcw">
+                                <rect key="frame" x="10" y="54" width="355" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VHX-vj-Her"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="All Friends"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="CZM-VF-y5M"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PuM-ZT-8vQ">
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="CJZ-nO-4DD"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Kfo-Vm-XcA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8nx-LC-Wcw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="2vS-EW-enc"/>
+                            <constraint firstItem="PuM-ZT-8vQ" firstAttribute="centerX" secondItem="8nx-LC-Wcw" secondAttribute="centerX" id="AAf-xA-S6v"/>
+                            <constraint firstItem="8nx-LC-Wcw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H8Q-FD-1Uh"/>
+                            <constraint firstItem="PuM-ZT-8vQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZLI-id-TU0"/>
+                            <constraint firstItem="PuM-ZT-8vQ" firstAttribute="top" secondItem="8nx-LC-Wcw" secondAttribute="bottom" constant="20" id="cfu-wV-pLR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8nx-LC-Wcw" secondAttribute="trailing" constant="10" id="oOT-nW-Kqd"/>
+                            <constraint firstItem="PuM-ZT-8vQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pln-f4-4ok"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Friends" id="xWm-Uv-3f5"/>
+                    <connections>
+                        <outlet property="AllFriendsTableView" destination="PuM-ZT-8vQ" id="Iy0-IH-xYd"/>
+                        <outlet property="FriendsSegment" destination="8nx-LC-Wcw" id="okF-0H-N8j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071.2" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jKx-ww-QWR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5IU-7C-3XS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mdt-2b-gZT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eUy-Xh-pkv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6g-JX-93E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

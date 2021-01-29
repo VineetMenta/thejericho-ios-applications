@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GZK-jr-lMe">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Friends-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TId-wJ-6Cb">
+                                <rect key="frame" x="27" y="54" width="321" height="32"/>
+                                <segments>
+                                    <segment title="All Friends"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="ESq-JB-1hW"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="biK-yV-x9i">
+                                <rect key="frame" x="0.0" y="95" width="375" height="572"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b8v-by-Kkj">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b8v-by-Kkj" id="2Ux-wi-FBL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="azi-er-Wzb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ch4-7v-AGK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="FJd-Qw-E9a"/>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="centerX" secondItem="biK-yV-x9i" secondAttribute="centerX" id="NGL-0g-ppu"/>
+                            <constraint firstItem="biK-yV-x9i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RIs-7N-sqN"/>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Y9W-6e-rna"/>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="blp-BE-r9s"/>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="htv-pV-b8O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TId-wJ-6Cb" secondAttribute="trailing" constant="27" id="lcY-DI-rzF"/>
+                            <constraint firstItem="biK-yV-x9i" firstAttribute="top" secondItem="TId-wJ-6Cb" secondAttribute="bottom" constant="10" id="ogl-nU-Ihv"/>
+                            <constraint firstItem="TId-wJ-6Cb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="snK-qc-PAX"/>
+                            <constraint firstItem="biK-yV-x9i" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tPq-Cw-TeH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Friends" id="EOD-KH-7Uc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="sX2-Gq-6M1">
+                            <connections>
+                                <action selector="AddToFav:" destination="BYZ-38-t0r" id="d9j-qH-FIf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="AllFriendsTableView" destination="biK-yV-x9i" id="cAD-Mo-kZd"/>
+                        <outlet property="FriendsSegment" destination="TId-wJ-6Cb" id="KCy-DY-NyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071.2" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pXH-pc-yvM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GZK-jr-lMe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zka-gI-w8a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qpO-n3-GOi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns7-DB-iAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
